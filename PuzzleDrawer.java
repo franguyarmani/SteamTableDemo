@@ -20,6 +20,13 @@ public class PuzzleDrawer {
 		
 		while(StdIn.hasNextLine()) {
 			ClearVariables();
+			StdDraw.clear();
+			StdDraw.square(0,0,75);
+			StdDraw.line(-75, -25, 75, -25);
+			StdDraw.line(-75, 25, 75, 25);
+			StdDraw.line(-25, -75, -25, 75);
+			StdDraw.line(25, -75, 25, 75);
+			
 			String nextNode = StdIn.readLine();
 			if(nextNode.length() > 2) {
 				c00 = nextNode.charAt(2);
@@ -32,11 +39,9 @@ public class PuzzleDrawer {
 				c12 = nextNode.charAt(10);
 			}else {
 				StdDraw.setPenColor(StdDraw.RED);
-				StdDraw.text(-50, 50, String.valueOf(c00));
-				StdDraw.text(0, 50, String.valueOf(c01));
-				StdDraw.text(50, 50, String.valueOf(c02));
+				WriteValues();
 				StdDraw.show();
-				StdDraw.pause(40);
+				StdDraw.pause(20);
 			}
 			
 			if(nextNode.length() > 13) {
@@ -44,44 +49,33 @@ public class PuzzleDrawer {
 				c21 = nextNode.charAt(15);
 				c22 = nextNode.charAt(16);
 			}else {
-				StdDraw.clear();
 				StdDraw.text(-50, 50, String.valueOf(c00));
 				StdDraw.text(0, 50, String.valueOf(c01));
 				StdDraw.text(50, 50, String.valueOf(c02));
-				StdDraw.setPenColor(StdDraw.BLUE);
+				StdDraw.setPenColor(StdDraw.ORANGE);
 				StdDraw.text(-50, 0, String.valueOf(c10));
 				StdDraw.text(0, 0, String.valueOf(c11));
 				StdDraw.text(50, 0, String.valueOf(c12));
 				StdDraw.show();
-				StdDraw.pause(40);
+				StdDraw.pause(20);
 			}
 			StdDraw.setPenColor(StdDraw.BLACK);
 			StdDraw.clear();
-			StdDraw.text(-50, 50, String.valueOf(c00));
-			StdDraw.text(0, 50, String.valueOf(c01));
-			StdDraw.text(50, 50, String.valueOf(c02));
-			StdDraw.text(-50, 0, String.valueOf(c10));
-			StdDraw.text(0, 0, String.valueOf(c11));
-			StdDraw.text(50, 0, String.valueOf(c12));
-			StdDraw.text(-50, -50, String.valueOf(c20));
-			StdDraw.text(0, -50, String.valueOf(c21));
-			StdDraw.text(50, -50, String.valueOf(c22));
+			WriteValues();
 			StdDraw.show();
-			StdDraw.pause(10);
+			StdDraw.pause(5);
 			
 			
 		}
 		StdDraw.clear();
 		StdDraw.setPenColor(StdDraw.GREEN);
-		StdDraw.text(-50, 50, String.valueOf(c00));
-		StdDraw.text(0, 50, String.valueOf(c01));
-		StdDraw.text(50, 50, String.valueOf(c02));
-		StdDraw.text(-50, 0, String.valueOf(c10));
-		StdDraw.text(0, 0, String.valueOf(c11));
-		StdDraw.text(50, 0, String.valueOf(c12));
-		StdDraw.text(-50, -50, String.valueOf(c20));
-		StdDraw.text(0, -50, String.valueOf(c21));
-		StdDraw.text(50, -50, String.valueOf(c22));
+		WriteValues();
+		StdDraw.setPenColor(StdDraw.BLACK);
+		StdDraw.square(0,0,75);
+		StdDraw.line(-75, -25, 75, -25);
+		StdDraw.line(-75, 25, 75, 25);
+		StdDraw.line(-25, -75, -25, 75);
+		StdDraw.line(25, -75, 25, 75);
 		StdDraw.show();
 			
 	}
@@ -95,6 +89,22 @@ public class PuzzleDrawer {
 		c20 = ' ';
 		c21 = ' ';
 		c22 = ' ';
+	}
+	public static void WriteValues() {
+		StdDraw.square(0,0,75);
+		StdDraw.line(-75, -25, 75, -25);
+		StdDraw.line(-75, 25, 75, 25);
+		StdDraw.line(-25, -75, -25, 75);
+		StdDraw.line(25, -75, 25, 75);
+		StdDraw.text(-50, 50, String.valueOf(c00));
+		StdDraw.text(0, 50, String.valueOf(c01));
+		StdDraw.text(50, 50, String.valueOf(c02));
+		StdDraw.text(-50, 0, String.valueOf(c10));
+		StdDraw.text(0, 0, String.valueOf(c11));
+		StdDraw.text(50, 0, String.valueOf(c12));
+		StdDraw.text(-50, -50, String.valueOf(c20));
+		StdDraw.text(0, -50, String.valueOf(c21));
+		StdDraw.text(50, -50, String.valueOf(c22));
 	}
 
 }
