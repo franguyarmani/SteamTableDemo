@@ -26,8 +26,8 @@ public class PuzzleDrawer {
 			StdDraw.line(-75, 25, 75, 25);
 			StdDraw.line(-25, -75, -25, 75);
 			StdDraw.line(25, -75, 25, 75);
-			
 			String nextNode = StdIn.readLine();
+			System.out.println(nextNode);
 			if(nextNode.length() > 2) {
 				c00 = nextNode.charAt(2);
 				c01 = nextNode.charAt(3);
