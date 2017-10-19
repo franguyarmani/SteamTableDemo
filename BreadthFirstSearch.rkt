@@ -32,7 +32,7 @@
                                        ) ]
         )
       (cond
-        [(IsGoal? input StartNode) StartNode]
+        [(IsGoal? input StartNode) (write StartNode)]
         [else(PuzzleSolver(top queue) FirstWords SecondWords ThirdWords (pop queue))]
         )
       )
