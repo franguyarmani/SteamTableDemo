@@ -823,7 +823,14 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         offscreen.setColor(penColor);
         draw();
     }
-
+    
+    public static void clearLocal(int x0, int y0, int x1, int y1) {
+    	offscreen.setColor(DEFAULT_CLEAR_COLOR);
+    	offscreen.fillRect(x0, y0, x1, y1);
+        offscreen.setColor(penColor);
+        draw();
+    }
+    
     /**
      * Returns the current pen radius.
      *
