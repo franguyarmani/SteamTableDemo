@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -50,12 +49,7 @@ public class PuzzleDrawer implements Runnable {
 		 * Setting up initial conditions for search visualizer
 		 */
 		
-		StdDraw.enableDoubleBuffering();
-		StdDraw.setCanvasSize(1024, 512);
-		StdDraw.setXscale(-100, 300);
-		StdDraw.setYscale(-100, 100);
-		Font font = new Font("Sans Sarif", Font.BOLD, 40);
-		StdDraw.setFont(font);
+
 		StdDraw.setPenColor(color1);
 		
 		try {
@@ -114,7 +108,6 @@ public class PuzzleDrawer implements Runnable {
 				nextLine = Source.readLine();
 			}
 		}catch(IOException | NullPointerException NoLine){
-			System.out.println("No more nodes given to check");
 			NoLine.printStackTrace(System.out);
 			
 		}catch(InterruptedException I) {

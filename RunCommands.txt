@@ -1,0 +1,15 @@
+
+HS vs BFS alpha
+java Main C:\Users\fbpea\Git_Repositories\SteamTableDemo\HeuristicSearch.exe C:\Users\fbpea\Git_Repositories\SteamTableDemo\BreadthFirstSearch.exe
+
+HS vs BFS v2
+java Main C:\Users\fbpea\Git_Repositories\SteamTableDemo\HeuristicSearch_Inputv2.exe C:\Users\fbpea\Git_Repositories\SteamTableDemo\BreadthFirstSearch_Inputv2.exe
+
+HS vs BFS v3
+java Main C:\Users\fbpea\Git_Repositories\SteamTableDemo\HeuristicSearch_Inputv3.exe C:\Users\fbpea\Git_Repositories\SteamTableDemo\BreadthFirstSearch_Inputv3.exe
+
+HS vs DFS v2
+java Main C:\Users\fbpea\Git_Repositories\SteamTableDemo\HeuristicSearch_Inputv2.exe C:\Users\fbpea\Git_Repositories\SteamTableDemo\DepthFirstSearch_Inputv2.exe
+
+HS vs DFS v3
+java Main C:\Users\fbpea\Git_Repositories\SteamTableDemo\HeuristicSearch_Inputv3.exe C:\Users\fbpea\Git_Repositories\SteamTableDemo\DepthFirstSearch_Inputv3.exe
