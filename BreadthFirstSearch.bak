@@ -5,6 +5,8 @@
 
 
 (define (PuzzleSolver StartNode FirstWords SecondWords ThirdWords queue)
+  (write StartNode)
+  (display "\n")
   (if (HasChildren? StartNode)
       (cond
         [(equal? (length StartNode) 0)(PuzzleSolver
