@@ -3,13 +3,14 @@ import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 
 public class PuzzleDrawer implements Runnable {
 	private Thread t;
 	private String Name;
 	private BufferedReader Source;
-	private CountDownLatch StartSignal;
+	private CyclicBarrier StartSignal;
 	private double	xshift;
 	private int pixelshift;
 	private Color color1;
@@ -25,7 +26,7 @@ public class PuzzleDrawer implements Runnable {
 	char c21;
 	char c22;
 	
-	PuzzleDrawer(String nameOfDrawer, String Path, CountDownLatch StartSignal, int shift, Color C1, Color C2, long Time) {
+	PuzzleDrawer(String nameOfDrawer, String Path, CyclicBarrier StartSignal, int shift, Color C1, Color C2, long Time) {
 		Name = nameOfDrawer;
 		this.Source = getReader(Path);
 		this.StartSignal = StartSignal;
@@ -57,19 +58,17 @@ public class PuzzleDrawer implements Runnable {
 		StdDraw.setFont(font);
 		StdDraw.setPenColor(color1);
 		
-		StartSignal.countDown();
 		try {
-			long starttime = System.nanoTime();
+
 			StartSignal.await();
-			long endtime = System.nanoTime();
-			System.out.println(Name+": gate hit after "+(starttime-Time));
-			System.out.println(Name+": gate passed after "+(endtime-Time));
 			String nextLine = Source.readLine();
+			
 			while(nextLine != null) {
+				StartSignal.await();
 				String nextNode = nextLine;
-				//System.out.println(Name+": "+nextLine);
 				ClearVariables();
 				StdDraw.clearLocal(0+pixelshift, 0, 512+pixelshift, 512);
+				StdDraw.setPenColor(color1);
 				StdDraw.square(0+xshift,0,75);
 				StdDraw.line(-75+xshift, -25, 75+xshift, -25);
 				StdDraw.line(-75+xshift, 25, 75+xshift, 25);
@@ -120,6 +119,9 @@ public class PuzzleDrawer implements Runnable {
 			
 		}catch(InterruptedException I) {
 			System.out.println("Thread interupted");
+		}catch (BrokenBarrierException e) {
+			System.out.println("BarrierBroken");
+			e.printStackTrace();
 		}
 		System.out.println(Name+" passed exception");
 
@@ -132,6 +134,16 @@ public class PuzzleDrawer implements Runnable {
 		StdDraw.line(-25+xshift, -75, -25+xshift, 75);
 		StdDraw.line(25+xshift, -75, 25+xshift, 75);
 		StdDraw.show();
+		
+		
+		while(true) {
+			try {
+				StartSignal.await();
+			} catch (InterruptedException | BrokenBarrierException e) {
+				System.out.println("Error while allowing other string to continue");
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public BufferedReader getReader(String Path) {
