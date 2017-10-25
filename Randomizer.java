@@ -1,6 +1,14 @@
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+
+/*
+ * This class is a shuffler used to shuffle "solutionArray". The solution array is the 
+ * list of words handed to the search algorithms to be searched. It is necessary to 
+ * randomize it because the order of the list handed to the search algorithms changes 
+ * which will find a solution first. I used this to provide a few random ordered lists
+ * to make executables with. 
+ */
 public class Randomizer{
   public static void main(String args[])
   {
